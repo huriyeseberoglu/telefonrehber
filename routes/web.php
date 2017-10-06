@@ -21,3 +21,5 @@ Route::get('/yenikayit', 'KayitController@kayit')
 ->name('rehber.kayit');
 
 Route::post('/kaydet', array('as'=>'kaydet','uses'=>'KayitController@postKaydet'));
+
+Route::post('/sonuc', array('as'=>'sonuc','uses'=>'ListeleController@postSonuc'));

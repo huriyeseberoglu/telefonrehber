@@ -12,4 +12,21 @@ class ListeleController extends Controller
         $veriler=telefonrehberi::whereRaw('id!=?',array(0)) ->get();
         return view('listele',array('kullanıcıliste'=>$veriler));
     }
+    
+    public function postSonuc()
+    {
+        $arama = $_GET['aramasorgusu'];
+        $sonuc = "SELECT * FROM telefonrehber WHERE baslik LIKE '%".$arama."%'" ;
+        if(@mysql_num_rows($sonuc)>0)
+        {
+            while($sorguoku=$sonuc)
+            {
+                echo $sorguoku['baslik'].'<br>';
+            }
+        }
+        else
+        {
+            echo 'Aradığınız İçerik Bulunamadı';
+        }
+    }
 }

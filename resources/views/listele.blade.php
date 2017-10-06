@@ -1,10 +1,20 @@
 <title>Kayıtlı Kullanıcılar</title>
 <link rel="stylesheet" href="css\app.css">
-<br><br><br>
+<br>
 <div class="container" >
     <div class="panel panel-default" >
         <div class="panel-heading" style="font-size: 25;"> Kayıtlı Kullanıcılar</div>
         <div class="panel-body">
+            <form action="sonuc" method="post">
+                <table>
+                <td  ><input type="text" name="aramasorgusu" placeholder="Aranan Kelime"  class="col-md-12"></td>
+                </table>
+                <br>
+                <table>
+                <td><input type="submit" value="Ara"  class="col-md-12"></td>
+                </table>
+            </form>
+            <br>
             <table class="table table-bordered">
                 <tr>
                     <th>Adı :</th>
