@@ -22,4 +22,4 @@ Route::get('/yenikayit', 'KayitController@kayit')
 
 Route::post('/kaydet', array('as'=>'kaydet','uses'=>'KayitController@postKaydet'));
 
-Route::post('/sonuc', array('as'=>'sonuc','uses'=>'ListeleController@postSonuc'));
+Route::get('/sonuc', array('as'=>'sonuc','uses'=>'ListeleController@getSonuc'));

@@ -5,7 +5,7 @@
     <div class="panel panel-default" >
         <div class="panel-heading" style="font-size: 25;"> Kayıtlı Kullanıcılar</div>
         <div class="panel-body">
-            <form action="sonuc" method="post">
+            <form action="sonuc" method="get">
                 <table>
                 <td  ><input type="text" name="aramasorgusu" placeholder="Aranan Kelime"  class="col-md-12"></td>
                 </table>

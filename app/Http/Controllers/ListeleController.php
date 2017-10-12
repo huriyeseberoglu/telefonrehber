@@ -13,11 +13,11 @@ class ListeleController extends Controller
         return view('listele',array('kullanıcıliste'=>$veriler));
     }
     
-    public function postSonuc()
+    public function getSonuc()
     {
         $arama = $_GET['aramasorgusu'];
         $sonuc = "SELECT * FROM telefonrehber WHERE baslik LIKE '%".$arama."%'" ;
-        if(@mysql_num_rows($sonuc)>0)
+        if($sonuc>0)
         {
             while($sorguoku=$sonuc)
             {
