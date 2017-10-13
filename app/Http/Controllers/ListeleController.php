@@ -11,7 +11,7 @@ class ListeleController extends Controller
     public function getlistele()
     {
         $veriler = telefonrehberi::whereRaw('id!=?', array(0))->get();
-        return view('listele', array('kullanıcıliste' => $veriler));
+        return view('listele', array('kullanıcıliste' => $veriler,'aranan' => ''));
     }
 
     public function getSonuc()
@@ -19,7 +19,8 @@ class ListeleController extends Controller
         $aranan=Input::get('aramasorgusu');
         $aranankelime="%$aranan%";
         $sonuclar=telefonrehberi::whereRaw('ad like ? or soyad like ? or telefon like ? or adres like ?',array($aranankelime,$aranankelime,$aranankelime,$aranankelime))->get();
-        return view('listele', array('kullanıcıliste' => $sonuclar));
+
+        return view('listele', array('kullanıcıliste' => $sonuclar,'aranan' => $aranan));
 
 
     }

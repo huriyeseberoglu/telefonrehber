@@ -7,7 +7,7 @@
         <div class="panel-body">
             <form action="sonuc" method="get">
                 <table>
-                <td  ><input type="text" name="aramasorgusu" placeholder="Aranan Kelime"  class="col-md-12"></td>
+                <td  ><input type="text" name="aramasorgusu"  value="{{$aranan}}" class="col-md-12"></td>
                 </table>
                 <br>
                 <table>
