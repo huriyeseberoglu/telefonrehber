@@ -4,29 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Models\telefonrehberi;
+use Illuminate\Support\Facades\Input;
 
 class ListeleController extends Controller
 {
     public function getlistele()
     {
-        $veriler=telefonrehberi::whereRaw('id!=?',array(0)) ->get();
-        return view('listele',array('kullanıcıliste'=>$veriler));
+        $veriler = telefonrehberi::whereRaw('id!=?', array(0))->get();
+        return view('listele', array('kullanıcıliste' => $veriler));
     }
-    
+
     public function getSonuc()
     {
-        $arama = $_GET['aramasorgusu'];
-        $sonuc = "SELECT * FROM telefonrehber WHERE baslik LIKE '%".$arama."%'" ;
-        if($sonuc>0)
-        {
-            while($sorguoku=$sonuc)
-            {
-                echo $sorguoku['baslik'].'<br>';
-            }
-        }
-        else
-        {
-            echo 'Aradığınız İçerik Bulunamadı';
-        }
+        $aranan=Input::get('aramasorgusu');
+        $aranankelime="%$aranan%";
+        $sonuclar=telefonrehberi::whereRaw('ad like ? or soyad like ? or telefon like ? or adres like ?',array($aranankelime,$aranankelime,$aranankelime,$aranankelime))->get();
+        return view('listele', array('kullanıcıliste' => $sonuclar));
+
+
     }
+
+
 }
