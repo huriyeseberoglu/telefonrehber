@@ -21,6 +21,7 @@
                     <th>Soyadı :</th>
                     <th>Telefon Numarası :</th>
                     <th>Adresi :</th>
+                    <th>İşlemler :</th>
                 </tr>
             @foreach($kullanıcıliste as $kullanıcı)
                 <tr>
@@ -28,6 +29,7 @@
                   <td>{{ $kullanıcı -> soyad }}</td>
                   <td>{{ $kullanıcı -> telefon }}</td>
                   <td>{{ $kullanıcı -> adres }}</td>
+                  <td><a href="{{url('/güncelle/'.$kullanıcı->id)}}">Güncelle</a> </td>
                 </tr>
             @endforeach
             </table>

@@ -21,9 +21,12 @@ class ListeleController extends Controller
         $sonuclar=telefonrehberi::whereRaw('ad like ? or soyad like ? or telefon like ? or adres like ?',array($aranankelime,$aranankelime,$aranankelime,$aranankelime))->get();
 
         return view('listele', array('kullanıcıliste' => $sonuclar,'aranan' => $aranan));
-
-
     }
 
+    public function getGuncelle($id=0)
+    {
+        $veriler = telefonrehberi::whereRaw('id!=?')->get();
+        return view('listele', array('kullanıcıliste' => $veriler,'aranan' => ''));   
+    }
 
 }
