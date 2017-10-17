@@ -1,5 +1,5 @@
 <title>Kayıtlı Kullanıcılar</title>
-<link rel="stylesheet" href="css\app.css">
+<link rel="stylesheet" href="\css\app.css">
 <br>
 <div class="container" >
     <div class="panel panel-default" >
@@ -29,7 +29,7 @@
                   <td>{{ $kullanıcı -> soyad }}</td>
                   <td>{{ $kullanıcı -> telefon }}</td>
                   <td>{{ $kullanıcı -> adres }}</td>
-                  <td><a href="{{url('/güncelle/'.$kullanıcı->id)}}">Güncelle</a> </td>
+                  <td><a href="{{url('/guncelle/'.$kullanıcı->id)}}">Güncelle</a> </td>
                 </tr>
             @endforeach
             </table>

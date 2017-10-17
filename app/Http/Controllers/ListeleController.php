@@ -25,8 +25,6 @@ class ListeleController extends Controller
 
     public function getGuncelle($id=0)
     {
-        $veriler = telefonrehberi::whereRaw('id!=?')->get();
-        return view('listele', array('kullanıcıliste' => $veriler,'aranan' => ''));   
+        return view('guncelle');
     }
-
 }

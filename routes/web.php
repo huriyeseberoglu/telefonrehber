@@ -25,3 +25,4 @@ Route::post('/kaydet', array('as'=>'kaydet','uses'=>'KayitController@postKaydet'
 Route::get('/sonuc', array('as'=>'sonuc','uses'=>'ListeleController@getSonuc'));
 
 Route::get('/guncelle/{id?}', array('as'=>'guncelle','uses'=>'ListeleController@getGuncelle'));
+
