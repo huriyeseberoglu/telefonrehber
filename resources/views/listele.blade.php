@@ -29,7 +29,7 @@
                   <td>{{ $kullanıcı -> soyad }}</td>
                   <td>{{ $kullanıcı -> telefon }}</td>
                   <td>{{ $kullanıcı -> adres }}</td>
-                  <td><a href="{{url('/guncelle/'.$kullanıcı->id)}}">Güncelle</a> </td>
+                  <td><a href="{{url('/guncelle/'.$kullanıcı->id)}}">Güncelle</a> -  <a href="{{url('/sil/'.$kullanıcı->id)}}">Sil</a></td>
                 </tr>
             @endforeach
             </table>

@@ -30,4 +30,24 @@ class ListeleController extends Controller
         return view('guncelle',array('kullaniciguncelle'=>$kullanıcı));
 
     }
+
+    public function getSil($id=0)
+    {
+        if ($id!=0)
+        {
+            $kullanicisil=telefonrehberi::where('id','=',$id)->delete();
+            if ($kullanicisil)
+            {
+              return redirect()->route('listele');
+            }
+            else
+            {
+                return null;
+            }
+        }
+        else
+        {
+            return null;
+        }
+    }
 }

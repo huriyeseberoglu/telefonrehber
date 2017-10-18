@@ -27,3 +27,5 @@ Route::get('/sonuc', array('as'=>'sonuc','uses'=>'ListeleController@getSonuc'));
 Route::get('/guncelle/{id?}', array('as'=>'guncelle','uses'=>'ListeleController@getGuncelle'));
 
 Route::post('/guncelle', array('as'=>'guncelle','uses'=>'KayitController@postGuncelle'));
+
+Route::get('/sil/{id?}', array('as'=>'sil','uses'=>'ListeleController@getSil'));
