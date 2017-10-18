@@ -6,13 +6,14 @@
         <div class="panel-heading"  style="font-size: 25;">Kullanıcıyı Güncelleyiniz</div>
         <br>
         <div class="panel-body">
-            @if(isset($kitapguncelle))
+            @if(isset($kullaniciguncelle))
                 <form class="form-horizontal" action="{{ url('/guncelle') }}" method="post">
                     {{ csrf_field() }}
+
                     <div class="form-group">
                         <label class="col-md-4">Ad:</label>
                         <div class="col-md-4">
-                            <input type="text" name="adi" class="form-control" value="{{$kullaniciguncelle->ad}}">
+                            <input type="text" name="adi" class="form-control"  value="{{$kullaniciguncelle->ad}}">
                         </div>
                     </div>
 
@@ -26,14 +27,14 @@
                     <div class="form-group">
                         <label class="col-md-4">Telefon:</label>
                         <div class="col-md-4">
-                            <input type="text" name="telefonu" class="form-control" value="{{$kullaniciguncelle->telefon}}">
+                            <input type="text" name="telefonu" class="form-control"  value="{{$kullaniciguncelle->telefon}}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4">Adres:</label>
                         <div class="col-md-4">
-                            <input type="text" name="adresi" class="form-control" value="{{$kullaniciguncelle->adres}}">
+                            <input type="text" name="adresi" class="form-control"  value="{{$kullaniciguncelle->adres}}">
                         </div>
                     </div>
                     <br>
