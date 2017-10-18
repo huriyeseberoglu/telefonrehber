@@ -9,7 +9,7 @@
             @if(isset($kullaniciguncelle))
                 <form class="form-horizontal" action="{{ url('/guncelle') }}" method="post">
                     {{ csrf_field() }}
-
+                    <input type="hidden" name="id" value="{{$kullaniciguncelle->id}}">
                     <div class="form-group">
                         <label class="col-md-4">Ad:</label>
                         <div class="col-md-4">

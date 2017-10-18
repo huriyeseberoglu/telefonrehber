@@ -44,4 +44,34 @@ class KayitController extends Controller
             }
         }
     }
+
+    public function postGuncelle(Request $request)
+    {
+        $kontrol= Validator::make($request->all(), array(
+            'adi' => 'required',
+            'soyadi' => 'required',
+            'telefonu' => 'required',
+            'adresi' => 'required'
+        ));
+        if ($kontrol->fails())
+        {
+            return redirect()->to('/')->withErrors($kontrol)->withInput();
+        }
+        else
+        {
+            $id= $request->input('id');
+            $ad= $request->input('adi');
+            $soyad= $request->input('soyadi');
+            $telefon= $request->input('telefonu');
+            $adres= $request->input('adresi');
+            $kullanici= telefonrehberi::find($id);
+
+            $kullanici->ad=$ad;
+            $kullanici->soyad=$soyad;
+            $kullanici->telefon=$telefon;
+            $kullanici->adres=$adres;
+            $kullanici->save();
+            return redirect()->route('listele');
+        }
+    }
 }
