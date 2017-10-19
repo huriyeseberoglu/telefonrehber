@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\telefonrehberi;
+use App\Http\Models\Telefonrehberi;
 use Validator;
 
 class KayitController extends Controller
@@ -16,33 +16,30 @@ class KayitController extends Controller
     public function postKaydet(Request $request)
     {
         $kontrol= Validator::make($request->all(), array(
-            'adi' => 'required',
+            'adi' => 'required|min:3',
             'soyadi' => 'required',
             'telefonu' => 'required',
             'adresi' => 'required'
         ));
-        if ($kontrol->fails())
+        if (!$kontrol->fails())
         {
-            return redirect()->to('/')->withErrors($kontrol)->withInput();
-        }
-        else
-        {
-            $ad= $request->input('adi');
+            $isim= $request->input('adi');
             $soyad= $request->input('soyadi');
             $telefon= $request->input('telefonu');
             $adres= $request->input('adresi');
 
-            $kaydet= telefonrehberi::create(array(
-               'ad' => $ad,
-               'soyad' => $soyad,
-               'telefon' => $telefon,
-               'adres' => $adres
+            $kaydet= Telefonrehberi::create(array(
+                'ad' => $isim,
+                'soyad' => $soyad,
+                'telefon' => $telefon,
+                'adres' => $adres
             ));
             if ($kaydet)
             {
                 return redirect()->route('listele');
             }
         }
+        return redirect()->route('listele');
     }
 
     public function postGuncelle(Request $request)
@@ -53,25 +50,23 @@ class KayitController extends Controller
             'telefonu' => 'required',
             'adresi' => 'required'
         ));
-        if ($kontrol->fails())
+        if (!$kontrol->fails())
         {
-            return redirect()->to('/')->withErrors($kontrol)->withInput();
-        }
-        else
-        {
-            $id= $request->input('id');
-            $ad= $request->input('adi');
+            $idsi= $request->input('id');
+            $adi= $request->input('adi');
             $soyad= $request->input('soyadi');
             $telefon= $request->input('telefonu');
             $adres= $request->input('adresi');
-            $kullanici= telefonrehberi::find($id);
+            $kullanici= Telefonrehberi::find($idsi);
 
-            $kullanici->ad=$ad;
+            $kullanici->ad=$adi;
             $kullanici->soyad=$soyad;
             $kullanici->telefon=$telefon;
             $kullanici->adres=$adres;
             $kullanici->save();
             return redirect()->route('listele');
         }
+        return redirect()->to('/')->withErrors($kontrol)->withInput();
     }
+
 }

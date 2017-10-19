@@ -4,8 +4,13 @@ namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class telefonrehberi extends Model
+class Telefonrehberi extends Model
 {
     protected $table = "telefonrehber";
     protected $fillable = ['ad','soyad','telefon','adres'];
+
 }
+
+
+
+
