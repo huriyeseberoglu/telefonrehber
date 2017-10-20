@@ -20,6 +20,7 @@
                     <th>Adı :</th>
                     <th>Soyadı :</th>
                     <th>Telefon Numarası :</th>
+                    <th>Diger Telefon :</th>
                     <th>Adresi :</th>
                     <th>İşlemler :</th>
                 </tr>
@@ -28,6 +29,7 @@
                   <td>{{ $kullanıcı -> ad }}</td>
                   <td>{{ $kullanıcı -> soyad }}</td>
                   <td>{{ $kullanıcı -> telefon }}</td>
+                  <td>{{ $kullanıcı -> diger_telefon }}</td>
                   <td>{{ $kullanıcı -> adres }}</td>
                   <td><a href="{{url('/guncelle/'.$kullanıcı->id)}}">Güncelle</a> -  <a href="{{url('/sil/'.$kullanıcı->id)}}">Sil</a></td>
                 </tr>

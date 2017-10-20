@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Http\Models\Telefonrehberi;
 use Validator;
@@ -16,10 +15,11 @@ class KayitController extends Controller
     public function postKaydet(Request $request)
     {
         $kontrol= Validator::make($request->all(), array(
-            'adi' => 'required|min:3',
+            'adi' => 'required',
             'soyadi' => 'required',
             'telefonu' => 'required',
-            'adresi' => 'required'
+            'adresi' => 'required',
+            'digertel' => 'required'
         ));
         if (!$kontrol->fails())
         {
@@ -27,12 +27,13 @@ class KayitController extends Controller
             $soyad= $request->input('soyadi');
             $telefon= $request->input('telefonu');
             $adres= $request->input('adresi');
-
+            $digertel= $request->input('digertel');
             $kaydet= Telefonrehberi::create(array(
                 'ad' => $isim,
                 'soyad' => $soyad,
                 'telefon' => $telefon,
-                'adres' => $adres
+                'adres' => $adres,
+                'diger_telefon' => $digertel
             ));
             if ($kaydet)
             {
@@ -48,7 +49,8 @@ class KayitController extends Controller
             'adi' => 'required',
             'soyadi' => 'required',
             'telefonu' => 'required',
-            'adresi' => 'required'
+            'adresi' => 'required',
+            'digertelefon' => 'required'
         ));
         if (!$kontrol->fails())
         {
@@ -57,12 +59,14 @@ class KayitController extends Controller
             $soyad= $request->input('soyadi');
             $telefon= $request->input('telefonu');
             $adres= $request->input('adresi');
+            $digertelefon= $request->input('digertelefon');
             $kullanici= Telefonrehberi::find($idsi);
 
             $kullanici->ad=$adi;
             $kullanici->soyad=$soyad;
             $kullanici->telefon=$telefon;
             $kullanici->adres=$adres;
+            $kullanici->diger_telefon=$digertelefon;
             $kullanici->save();
             return redirect()->route('listele');
         }

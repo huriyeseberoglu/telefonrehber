@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Telefonrehberi extends Model
 {
     protected $table = "telefonrehber";
-    protected $fillable = ['ad','soyad','telefon','adres'];
-
+    protected $fillable = ['ad','soyad','telefon','adres','diger_telefon'];
 }
 
 

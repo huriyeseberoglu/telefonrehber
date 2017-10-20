@@ -27,7 +27,6 @@ class ListeleController extends Controller
     {
         $kullanici=Telefonrehberi::whereRaw('id=?',array($idsi))->first();
         return view('guncelle',array('kullaniciguncelle'=>$kullanici));
-
     }
 
     public function getSil($idd=0)
